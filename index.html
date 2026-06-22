@@ -1,0 +1,1001 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>王权的视觉语言｜跨文化设计网站</title><style>
+    :root {
+      --bg: #0e0a08;
+      --bg2: #17100d;
+      --paper: #f4ead8;
+      --text: #f7ead4;
+      --muted: #cbb995;
+      --gold: #d6ad5c;
+      --red: #9f2d22;
+      --blue: #1d4d78;
+      --green: #1f6a5a;
+      --wine: #63252f;
+      --card: rgba(255, 245, 220, 0.08);
+      --card2: rgba(255, 245, 220, 0.13);
+      --line: rgba(244, 223, 174, 0.18);
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Noto Serif SC", "Microsoft YaHei", "PingFang SC", serif;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(159, 45, 34, 0.28), transparent 32%),
+        radial-gradient(circle at 86% 20%, rgba(31, 106, 90, 0.26), transparent 30%),
+        radial-gradient(circle at 48% 52%, rgba(214, 173, 92, 0.12), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    img {
+      display: block;
+      width: 100%;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.08;
+      z-index: 99;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mix-blend-mode: overlay;
+    }
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 6vw;
+      border-bottom: 1px solid var(--line);
+      background: rgba(14, 10, 8, 0.72);
+      backdrop-filter: blur(18px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--gold);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      transform: rotate(45deg);
+    }
+    .brand-mark span {
+      transform: rotate(-45deg);
+      font-size: 14px;
+    }
+    nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    nav a {
+      position: relative;
+      transition: 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: var(--gold);
+    }
+    section {
+      padding: 92px 6vw;
+      position: relative;
+    }
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 56px;
+      padding-top: 150px;
+    }
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+      margin-bottom: 26px;
+    }
+    h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(247, 234, 212, 0.76);
+      font-size: 0.72em;
+      margin-top: 10px;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 18px;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn {
+      border: 1px solid rgba(214, 173, 92, 0.42);
+      border-radius: 999px;
+      padding: 13px 22px;
+      color: var(--text);
+      background: rgba(214, 173, 92, 0.1);
+      cursor: pointer;
+      transition: 0.32s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      gap: 8px;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(214, 173, 92, 0.18);
+    }
+    .btn.primary {
+      border: none;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      box-shadow: 0 20px 50px rgba(159,45,34,0.24);
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+    .royal-disc {
+      width: min(78vw, 420px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.18) 0 12%, transparent 13% 24%, rgba(255,255,255,0.12) 25% 27%, transparent 28%),
+        conic-gradient(from 90deg, var(--red), var(--gold), var(--blue), var(--green), var(--red));
+      box-shadow: var(--shadow);
+      animation: rotateDisc 24s linear infinite;
+    }
+    .royal-disc::before {
+      content: "";
+      position: absolute;
+      inset: 13%;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.4);
+      background:
+        repeating-conic-gradient(from 0deg, rgba(255,255,255,0.26) 0 8deg, transparent 8deg 16deg),
+        rgba(14, 10, 8, 0.52);
+      backdrop-filter: blur(8px);
+    }
+    .royal-disc::after {
+      content: "王权视觉";
+      position: absolute;
+      inset: 30%;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(14, 10, 8, 0.76);
+      border: 1px solid rgba(244, 223, 174, 0.35);
+      color: var(--gold);
+      font-size: 28px;
+      letter-spacing: 0.18em;
+      padding-left: 0.18em;
+      animation: reverseDisc 24s linear infinite;
+    }
+    .float-card {
+      position: absolute;
+      width: 170px;
+      padding: 18px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,245,220,0.09);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+    .float-card h3 {
+      color: var(--gold);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+    .float-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .float-card.one { left: 0; top: 60px; }
+    .float-card.two { right: 0; top: 165px; }
+    .float-card.three { left: 42%; bottom: 18px; }
+    .section-title {
+      max-width: 820px;
+      margin-bottom: 42px;
+    }
+    .section-title h2 {
+      font-size: clamp(34px, 5.2vw, 68px);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      margin-bottom: 16px;
+    }
+    .section-title p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .culture-card,
+    .showcase-card {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 30px;
+      padding: 26px;
+      min-height: 330px;
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .culture-card::before,
+    .showcase-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      right: -80px;
+      top: -80px;
+      background: radial-gradient(circle, rgba(214,173,92,0.23), transparent 66%);
+    }
+    .culture-card:hover,
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      background: var(--card2);
+      border-color: rgba(214,173,92,0.46);
+    }
+    .card-index {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      margin-bottom: 22px;
+    }
+    .culture-card h3,
+    .showcase-card h3 {
+      font-size: 27px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .culture-card p,
+    .showcase-card p {
+      color: var(--muted);
+      line-height: 1.78;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .tag {
+      color: var(--gold);
+      border: 1px solid rgba(214,173,92,0.25);
+      background: rgba(214,173,92,0.08);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+    .symbol {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      font-size: 42px;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.2), transparent 60%),
+        rgba(214,173,92,0.13);
+      color: var(--gold);
+      border: 1px solid rgba(214,173,92,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .symbol-image-wrap {
+      min-height: 220px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      background: transparent;
+      position: relative;
+      z-index: 1;
+    }
+    .symbol-image {
+      width: 100%;
+      max-width: 560px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      background: transparent;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.15));
+    }
+    .color-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .color-tabs {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--card);
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+    .tab-btn {
+      border: 1px solid rgba(244, 223, 174, 0.16);
+      background: rgba(255,245,220,0.06);
+      color: var(--muted);
+      border-radius: 18px;
+      padding: 14px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 15px;
+    }
+    .tab-btn:hover,
+    .tab-btn.active {
+      color: var(--text);
+      border-color: rgba(214,173,92,0.48);
+      background: rgba(214,173,92,0.13);
+    }
+    .palette-panel {
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      background: var(--card);
+      padding: 24px;
+      min-height: 450px;
+    }
+    .palette-head {
+      margin-bottom: 24px;
+    }
+    .palette-head h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+    .palette-head p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .swatch {
+      min-height: 210px;
+      border-radius: 24px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+    }
+    .swatch strong {
+      font-size: 20px;
+    }
+    .swatch small {
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+    .pattern-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .pattern-card {
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.18);
+    }
+    .pattern-art {
+      height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pattern-art.forbidden {
+      background:
+        radial-gradient(circle at 50% 50%, rgba(214,173,92,0.52) 0 4px, transparent 5px),
+        repeating-linear-gradient(90deg, rgba(214,173,92,0.32) 0 2px, transparent 2px 34px),
+        linear-gradient(135deg, #9f2d22, #35100d);
+      background-size: 42px 42px, 68px 68px, auto;
+    }
+    .pattern-art.europe {
+      background:
+        radial-gradient(ellipse at center, rgba(255,255,255,0.42) 0 2px, transparent 3px),
+        repeating-radial-gradient(circle at 50% 50%, rgba(214,173,92,0.25) 0 2px, transparent 2px 28px),
+        linear-gradient(135deg, #1d4d78, #63252f);
+      background-size: 48px 48px, auto, auto;
+    }
+    .pattern-art.islamic {
+      background:
+        conic-gradient(from 45deg, rgba(255,255,255,0.32), transparent, rgba(214,173,92,0.35), transparent, rgba(255,255,255,0.32)),
+        radial-gradient(circle, rgba(255,255,255,0.48) 0 1px, transparent 2px),
+        linear-gradient(135deg, #1f6a5a, #0d2d35);
+      background-size: 96px 96px, 36px 36px, auto;
+    }
+    .pattern-art::after {
+      content: attr(data-symbol);
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 88px;
+      color: rgba(255,245,220,0.88);
+      text-shadow: 0 16px 40px rgba(0,0,0,0.38);
+    }
+    .pattern-photo-wrap {
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      background: rgba(255,245,220,0.04);
+      padding: 18px;
+      overflow: hidden;
+    }
+    .pattern-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.10));
+    }
+    .pattern-text {
+      padding: 24px;
+    }
+    .pattern-text h3 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+    .pattern-text p {
+      color: var(--muted);
+      line-height: 1.76;
+      font-size: 15px;
+    }
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .process-step {
+      padding: 24px;
+      min-height: 210px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .process-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      z-index: 2;
+    }
+    .process-step small {
+      color: var(--gold);
+      letter-spacing: 0.16em;
+    }
+    .process-step h3 {
+      margin: 18px 0 10px;
+      font-size: 22px;
+    }
+    .process-step p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .works-gallery {
+      align-items: start;
+    }
+    .works-gallery .showcase-card {
+      text-align: center;
+    }
+    .works-gallery .showcase-content {
+      text-align: left;
+    }
+    .image-box {
+      height: 260px;
+      border-radius: 26px;
+      border: 1px solid rgba(244, 223, 174, 0.18);
+      background:
+        linear-gradient(135deg, rgba(159,45,34,0.28), rgba(31,106,90,0.26)),
+        radial-gradient(circle at 50% 35%, rgba(214,173,92,0.34), transparent 38%),
+        rgba(255,245,220,0.06);
+      display: grid;
+      place-items: center;
+      color: rgba(247,234,212,0.64);
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .poster-box {
+      width: min(100%, 310px);
+      height: auto;
+      aspect-ratio: 9 / 16;
+      margin: 0 auto 20px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(159,45,34,0.34), rgba(14,10,8,0.2)),
+        radial-gradient(circle at 50% 24%, rgba(214,173,92,0.36), transparent 34%),
+        rgba(255,245,220,0.06);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.28);
+    }
+    .product-board-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+      align-items: start;
+    }
+    .product-board {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 18px;
+      border: 1px solid rgba(244, 223, 174, 0.18);
+      background:
+        linear-gradient(180deg, rgba(214,173,92,0.18), rgba(14,10,8,0.16)),
+        radial-gradient(circle at 50% 22%, rgba(255,245,220,0.26), transparent 35%),
+        rgba(255,245,220,0.06);
+      display: grid;
+      place-items: center;
+      color: rgba(247,234,212,0.62);
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.65;
+      letter-spacing: 0.08em;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.22);
+    }
+    .product-board::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 12px;
+    }
+    .product-board span {
+      position: relative;
+      z-index: 1;
+    }
+    .product-board-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .image-box::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+    }
+    .poster-box::before {
+      inset: 16px;
+      border-radius: 16px;
+    }
+    .poster-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 22px;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.28);
+    }
+    .image-box span {
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.12em;
+      text-align: center;
+      padding: 0 18px;
+      line-height: 1.7;
+    }
+    .showcase-card {
+      padding: 18px;
+    }
+    .showcase-content {
+      padding: 0 8px 10px;
+    }
+    .showcase-content h3 {
+      font-size: 24px;
+    }
+    .showcase-meta {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+    .final-note {
+      border-radius: 34px;
+      border: 1px solid rgba(214,173,92,0.3);
+      background:
+        linear-gradient(135deg, rgba(159,45,34,0.18), rgba(31,106,90,0.16)),
+        rgba(255,245,220,0.06);
+      padding: 38px;
+      margin-top: 26px;
+      text-align: center;
+    }
+    .final-note h3 {
+      font-size: clamp(28px, 4vw, 46px);
+      margin-bottom: 14px;
+    }
+    .final-note p {
+      color: var(--muted);
+      line-height: 1.85;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+    .game-section {
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 10%, rgba(214, 173, 92, 0.16), transparent 36%),
+        radial-gradient(circle at 90% 70%, rgba(159, 45, 34, 0.16), transparent 34%);
+    }
+    .game-card {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 34px;
+      align-items: center;
+      border: 1px solid rgba(214, 173, 92, 0.28);
+      border-radius: 36px;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(244, 234, 216, 0.10), rgba(99, 37, 47, 0.14)),
+        rgba(255, 245, 220, 0.06);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .qr-panel {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle, rgba(244, 234, 216, 0.14), transparent 62%),
+        rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(244, 223, 174, 0.18);
+    }
+    .qr-link {
+      width: min(72%, 320px);
+      display: grid;
+      gap: 16px;
+      place-items: center;
+      color: var(--text);
+      transition: 0.32s ease;
+      cursor: pointer;
+    }
+    .qr-link:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    .qr-link img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 24px;
+      background: transparent;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
+      display: block;
+    }
+    .qr-click-hint {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 11px 18px;
+      color: #1b120d;
+      background: linear-gradient(135deg, var(--gold), #f4ead8);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      box-shadow: 0 14px 32px rgba(214, 173, 92, 0.20);
+    }
+    .game-copy h3 {
+      font-size: clamp(38px, 5vw, 62px);
+      margin: 12px 0 16px;
+      letter-spacing: -0.04em;
+    }
+    .game-copy p {
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .game-kicker {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .game-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .game-tags span {
+      border: 1px solid rgba(214, 173, 92, 0.36);
+      border-radius: 999px;
+      padding: 9px 14px;
+      color: var(--text);
+      background: rgba(214, 173, 92, 0.09);
+      font-size: 13px;
+    }
+    .scan-tips {
+      margin-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .scan-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(214, 173, 92, 0.08);
+      border: 1px solid rgba(214, 173, 92, 0.20);
+    }
+    .game-actions {
+      margin-top: 22px;
+    }
+    footer {
+      padding: 50px 6vw 80px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.72s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @keyframes rotateDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes reverseDisc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(-360deg); }
+    }
+    @media (max-width: 1080px) {
+      .hero,
+      .color-layout {
+        grid-template-columns: 1fr;
+      }
+      .three-grid,
+      .pattern-section,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+      .swatch-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      nav {
+        display: none;
+      }
+      .hero-visual {
+        min-height: 520px;
+      }
+    }
+    @media (max-width: 640px) {
+      section {
+        padding: 76px 5vw;
+      }
+      .game-card {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+      .qr-panel {
+        min-height: auto;
+      }
+      .game-copy h3 {
+        font-size: 36px;
+      }
+      .hero {
+        padding-top: 130px;
+      }
+      .float-card {
+        position: static;
+        width: 100%;
+      }
+      .hero-visual {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-height: auto;
+      }
+      .royal-disc {
+        margin-bottom: 12px;
+      }
+      .process,
+      .swatch-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-board-pair {
+        gap: 10px;
+      }
+      .product-board {
+        border-radius: 14px;
+        font-size: 11px;
+      }
+      .process-step::after {
+        display: none;
+      }
+    }
+  </style></head><body><div class="grain"></div><header><a href="#home" class="brand"><div class="brand-mark"><span>权</span></div><span>王权视觉语言</span></a><nav><a href="#symbols">权力符号</a><a href="#colors">王权颜色</a><a href="#patterns">纹样系统</a><a href="#translate">视觉提取</a><a href="#works">个人作品</a><a href="#products">产品展示</a><a href="#game">互动小游戏</a></nav></header><main><section class="hero" id="home"><div class="reveal"><div class="eyebrow">Cross-cultural Design · Royal Power</div><h1>王权的视觉语言<span>Visual Language of Royal Power</span></h1><p class="lead">
+          本网站以故宫、欧洲宫廷与伊斯兰文明为研究对象，聚焦王权文化中的
+          <strong>权力符号、颜色与纹样</strong>，通过视觉提取和设计转译，将传统王权符号转化为当代海报、数字视觉与文创产品展示。
+        </p><div class="btn-row"><a class="btn primary" href="#symbols">进入符号研究</a><a class="btn" href="#works">查看个人作品</a></div></div><div class="hero-visual reveal"><div class="royal-disc" aria-label="三种文明王权视觉融合图形"></div><article class="float-card one"><h3>故宫</h3><p>龙纹、朱红、鎏金、中轴与礼制秩序。</p></article><article class="float-card two"><h3>欧洲宫廷</h3><p>王冠、盾徽、宝蓝、金色与贵族荣耀。</p></article><article class="float-card three"><h3>伊斯兰文明</h3><p>几何、书法、青绿、穹顶与精神秩序。</p></article></div></section><section id="symbols"><div class="section-title reveal"><div class="eyebrow">Section 01</div><h2>权力符号：谁代表王权？</h2><p>
+          这一部分不讲景点，而是提取每种文明中最容易被识别的权力图像。它们是后续海报、AR 素材和文创产品的设计来源。
+        </p></div><div class="three-grid"><article class="culture-card reveal"><div class="symbol-image-wrap"><img class="symbol-image" src="assets/image_01.webp" alt="故宫权力符号图案"></div><div class="card-index">01 · Forbidden City</div><h3>故宫：龙与皇权</h3><p>
+            龙是故宫王权文化中最核心的视觉符号，代表天命、尊贵与至高权威。宫门、宝座、屋脊与服饰中的龙纹，共同构成皇帝身份的象征系统。
+          </p><div class="tag-list"><span class="tag">龙纹</span><span class="tag">祥云</span><span class="tag">宝座</span><span class="tag">中轴</span><span class="tag">宫门</span></div></article><article class="culture-card reveal"><div class="symbol-image-wrap"><img class="symbol-image" src="assets/image_02.webp" alt="欧洲宫廷权力符号图案"></div><div class="card-index">02 · European Court</div><h3>欧洲宫廷：王冠与盾徽</h3><p>
+            欧洲宫廷通过王冠、权杖、家族盾徽和君主肖像表现王权。它强调血统、家族、国家权威与个人君主形象。
+          </p><div class="tag-list"><span class="tag">王冠</span><span class="tag">权杖</span><span class="tag">盾徽</span><span class="tag">狮子</span><span class="tag">肖像</span></div></article><article class="culture-card reveal"><div class="symbol-image-wrap"><img class="symbol-image" src="assets/image_03.webp" alt="伊斯兰文明权力符号图案"></div><div class="card-index">03 · Islamic Civilization</div><h3>伊斯兰文明：几何与书法</h3><p>
+            伊斯兰文明中的权力表达更偏向抽象符号，常通过几何纹样、书法、穹顶和连续图案表现神圣秩序与精神权威。
+          </p><div class="tag-list"><span class="tag">星形几何</span><span class="tag">阿拉伯书法</span><span class="tag">拱券</span><span class="tag">穹顶</span><span class="tag">植物纹</span></div></article></div></section><section id="colors"><div class="section-title reveal"><div class="eyebrow">Section 02</div><h2>王权颜色：权威如何被色彩表达？</h2><p>
+          点击左侧文明名称，切换对应色彩系统。颜色不是背景装饰，而是权力、信仰、财富与等级感的视觉语言。
+        </p></div><div class="color-layout reveal"><div class="color-tabs" id="colorTabs"></div><div class="palette-panel"><div class="palette-head"><h3 id="paletteTitle">故宫色彩</h3><p id="paletteIntro">朱红、明黄、鎏金和青绿共同构成故宫的皇权色彩系统。</p></div><div class="swatch-grid" id="swatchGrid"></div></div></div></section><section id="patterns"><div class="section-title reveal"><div class="eyebrow">Section 03</div><h2>纹样系统：权力如何被装饰？</h2><p>
+          三种文明的纹样不只是装饰。它们分别指向皇权等级、家族身份与神圣秩序，是最适合转化成海报和产品 CMF 的视觉资源。
+        </p></div><div class="pattern-section"><article class="pattern-card reveal"><div class="pattern-photo-wrap"><img class="pattern-photo" src="assets/image_04.webp" alt="故宫纹样图案"></div><div class="pattern-text"><h3>故宫纹样</h3><p>龙纹、云纹、海水江崖纹、如意纹、团花纹。视觉特点是对称、庄重、中心化、等级明确。</p></div></article><article class="pattern-card reveal"><div class="pattern-photo-wrap"><img class="pattern-photo" src="assets/image_05.webp" alt="欧洲宫廷纹样图案"></div><div class="pattern-text"><h3>欧洲宫廷纹样</h3><p>王冠、盾徽、百合花、狮子、巴洛克卷草纹。视觉特点是华丽、繁复、强调家族徽章与贵族身份。</p></div></article><article class="pattern-card reveal"><div class="pattern-photo-wrap"><img class="pattern-photo" src="assets/image_06.webp" alt="伊斯兰文明纹样图案"></div><div class="pattern-text"><h3>伊斯兰文明纹样</h3><p>八角星纹、几何连续纹、阿拉伯书法纹、植物卷草纹、穹顶放射纹。视觉特点是抽象、连续、几何化、无限延展。</p></div></article></div></section><section id="translate"><div class="section-title reveal"><div class="eyebrow">Section 04</div><h2>视觉提取：从传统元素到现代图形</h2><p>
+          这里是网站从“文化研究”转向“设计输出”的关键。你可以把它理解成自己的设计方法论。
+        </p></div><div class="process"><article class="process-step reveal"><small>STEP 01</small><h3>原始文化符号</h3><p>收集龙纹、王冠、盾徽、星形几何、书法线条等王权元素。</p></article><article class="process-step reveal"><small>STEP 02</small><h3>图形简化</h3><p>提取轮廓、曲线、对称关系、放射结构和连续纹样规律。</p></article><article class="process-step reveal"><small>STEP 03</small><h3>色彩重组</h3><p>将朱红、金色、宝蓝、青绿等传统色转换为适合现代视觉的配色系统。</p></article><article class="process-step reveal"><small>STEP 04</small><h3>当代应用</h3><p>应用到海报、AR 视觉、数字藏品、灯具、香薰、包装和桌面产品。</p></article></div></section><section id="works"><div class="section-title reveal"><div class="eyebrow">Section 05</div><h2>个人生成作品展示</h2><p>
+          这里放你自己生成的海报、AR 视觉素材、纹样重组图。把下方卡片里的图片占位替换成你的作品图片即可。
+        </p></div><div class="gallery works-gallery"><article class="showcase-card reveal"><div class="image-box poster-box"><img class="poster-photo" src="assets/image_07.webp" alt="故宫个人作品海报"></div><div class="showcase-content"><div class="showcase-meta">Poster Design · Forbidden City</div><h3>龙纹与宫墙红</h3><p>以故宫龙纹和朱红色为灵感，提取龙形曲线和中轴对称结构，将皇权符号转化为现代视觉海报。</p></div></article><article class="showcase-card reveal"><div class="image-box poster-box"><img class="poster-photo" src="assets/image_08.webp" alt="欧洲宫廷个人作品海报"></div><div class="showcase-content"><div class="showcase-meta">Poster Design · European Court</div><h3>王冠与盾徽秩序</h3><p>以王冠、盾徽和宝蓝金色为核心，表现欧洲宫廷中的血统、荣耀与贵族权威。</p></div></article><article class="showcase-card reveal"><div class="image-box poster-box"><img class="poster-photo" src="assets/image_09.webp" alt="伊斯兰文明个人作品海报"></div><div class="showcase-content"><div class="showcase-meta">Poster Design · Islamic Civilization</div><h3>几何与精神秩序</h3><p>提取星形几何、青绿和穹顶放射结构，形成具有连续感和精神性的数字视觉作品。</p></div></article></div></section><section id="products"><div class="section-title reveal"><div class="eyebrow">Section 06</div><h2>文创产品展示</h2><p>
+          最后一部分放你的产品设计成果，让网站从文化分析落到“可使用、可传播、可购买想象”的当代文创转译。
+        </p></div><div class="gallery"><article class="showcase-card reveal"><div class="product-board-pair"><div class="product-board"><img class="product-board-image" src="assets/image_10.webp" alt="故宫文创产品展示图一"></div><div class="product-board"><img class="product-board-image" src="assets/image_11.webp" alt="故宫文创产品展示图二"></div></div><div class="showcase-content"><div class="showcase-meta">Product · Home Lighting</div><h3>宫影香薰灯</h3><p>文化来源为故宫王权色彩与窗棂结构，使用朱红、鎏金、龙纹曲线，定位为家居氛围照明与香薰产品。</p></div></article><article class="showcase-card reveal"><div class="product-board-pair"><div class="product-board"><img class="product-board-image" src="assets/image_12.webp" alt="欧洲宫廷文创产品展示图一"></div><div class="product-board"><img class="product-board-image" src="assets/image_13.webp" alt="欧洲宫廷文创产品展示图二"></div></div><div class="showcase-content"><div class="showcase-meta">Product · Decorative Object</div><h3>冠冕桌面摆件</h3><p>提取王冠、盾徽与宝蓝金色系统，用更简洁的工业化造型表达欧洲宫廷的华丽与秩序。</p></div></article><article class="showcase-card reveal"><div class="product-board-pair"><div class="product-board"><img class="product-board-image" src="assets/image_14.webp" alt="伊斯兰文明文创产品展示图一"></div><div class="product-board"><img class="product-board-image" src="assets/image_15.webp" alt="伊斯兰文明文创产品展示图二"></div></div><div class="showcase-content"><div class="showcase-meta">Product · Pattern Light</div><h3>星穹纹样灯</h3><p>以伊斯兰几何星纹和青绿色为灵感，让灯光透过连续纹样形成室内光影，体现精神性与现代家居感。</p></div></article></div><div class="final-note reveal"><h3>文化输出不是展示风景，而是转译符号。</h3><p>
+          本网站通过“符号、颜色、纹样”的提取，将三种文明中的王权文化转化为可观看、可互动、可应用的当代设计语言。
+          传统文化不再只是历史图像，而成为海报、AR、产品与生活方式中的视觉资源。
+        </p></div></section><section id="game" class="game-section"><div class="section-title reveal"><div class="eyebrow">Section 07</div><h2>互动小游戏：当代的王权文化</h2><p>
+          在网站结尾加入一个轻量互动入口，让观者从“观看”切换到“参与”，以更直接的方式感受传统王权符号在当代语境中的再设计与再传播。
+        </p></div><div class="game-card reveal"><div class="qr-panel"><a class="qr-link" href="https://bespoke-cannoli-5988d2.netlify.app/" target="_blank" rel="noopener" aria-label="点击进入互动小游戏"><img src="assets/qr_game.png" alt="互动小游戏二维码"><span class="qr-click-hint">点击进入小游戏</span></a></div><div class="game-copy"><div class="game-kicker">Click & Play · Interactive Game</div><h3>互动小游戏</h3><p>
+            点击左侧二维码或二维码下方按钮，即可直接进入“当代的王权文化”互动小游戏。内容以故宫、欧洲宫廷与伊斯兰文明的视觉元素为线索，
+            通过轻量化互动方式，让观者快速理解三种文化中的权力符号、颜色体系与纹样语言。
+          </p><div class="game-tags"><span>点击进入</span><span>快速互动</span><span>文化转译</span><span>当代传播</span></div><ul class="scan-tips"><li>电脑端可直接点击左侧二维码或二维码下方按钮进入小游戏。</li><li>进入小游戏后，可继续延伸浏览“当代的王权文化”互动内容。</li><li>适合作为课程展示结尾的互动补充，让观众更容易参与和记忆。</li></ul><p class="scan-note"><strong>提示：</strong>二维码保留现场扫码功能，同时已设置网页点击跳转，电脑端展示时也能直接进入互动小游戏。</p></div></div></section></main><footer><p>© Visual Language of Royal Power · Cross-cultural Design</p><p style="margin-top: 10px;">故宫 × 欧洲宫廷 × 伊斯兰文明 ｜ 符号 · 颜色 · 纹样 · 文创转译</p><p style="margin-top: 10px; color: #cbb995;">结尾可点击进入互动小游戏，继续体验“当代的王权文化”。</p></footer><script>
+    const palettes = [
+      {
+        name: "故宫色彩",
+        intro: "朱红、明黄、鎏金和青绿共同构成故宫的皇权色彩系统，强调庄重、中心、等级与东方审美。",
+        colors: [
+          { name: "朱红", hex: "#9f2d22", meaning: "宫墙、庄重、秩序" },
+          { name: "明黄", hex: "#d7a83f", meaning: "皇权、尊贵、中心" },
+          { name: "鎏金", hex: "#d6ad5c", meaning: "神圣、财富、等级" },
+          { name: "青绿", hex: "#2f806d", meaning: "建筑彩画、祥瑞、东方审美" }
+        ]
+      },
+      {
+        name: "欧洲宫廷色彩",
+        intro: "欧洲宫廷色彩更强调财富、贵族身份、宗教神圣感和仪式性的华丽表达。",
+        colors: [
+          { name: "金色", hex: "#d6ad5c", meaning: "财富、荣耀、权威" },
+          { name: "宝蓝", hex: "#1d4d78", meaning: "贵族、神圣、冷静" },
+          { name: "酒红", hex: "#63252f", meaning: "奢华、权力、仪式感" },
+          { name: "象牙白", hex: "#ede0c8", meaning: "宫廷、纯净、高贵" }
+        ]
+      },
+      {
+        name: "伊斯兰文明色彩",
+        intro: "伊斯兰文明色彩常通过青绿、深蓝、白色与金色表现信仰、纯净、宇宙秩序与装饰美感。",
+        colors: [
+          { name: "青绿", hex: "#1f6a5a", meaning: "信仰、生命、精神性" },
+          { name: "深蓝", hex: "#123d5a", meaning: "宇宙、神秘、秩序" },
+          { name: "白色", hex: "#f4ead8", meaning: "纯净、神圣、光" },
+          { name: "金色", hex: "#d6ad5c", meaning: "尊贵、神圣、装饰性" }
+        ]
+      }
+    ];
+    const colorTabs = document.getElementById("colorTabs");
+    const paletteTitle = document.getElementById("paletteTitle");
+    const paletteIntro = document.getElementById("paletteIntro");
+    const swatchGrid = document.getElementById("swatchGrid");
+    function getTextColor(hex) {
+      const lightColors = ["#ede0c8", "#f4ead8", "#d7a83f", "#d6ad5c"];
+      return lightColors.includes(hex.toLowerCase()) ? "#24170f" : "#fff7e8";
+    }
+    function renderPalette(index) {
+      const data = palettes[index];
+      paletteTitle.textContent = data.name;
+      paletteIntro.textContent = data.intro;
+      swatchGrid.innerHTML = data.colors.map(color => `
+        <div class="swatch" style="background:${color.hex}; color:${getTextColor(color.hex)}"><strong>${color.name}</strong><small>${color.hex}<br>${color.meaning}</small></div>
+      `).join("");
+      document.querySelectorAll(".tab-btn").forEach((btn, i) => {
+        btn.classList.toggle("active", i === index);
+      });
+    }
+    palettes.forEach((item, index) => {
+      const btn = document.createElement("button");
+      btn.className = "tab-btn";
+      btn.textContent = `${String(index + 1).padStart(2, "0")} · ${item.name}`;
+      btn.addEventListener("click", () => renderPalette(index));
+      colorTabs.appendChild(btn);
+    });
+    renderPalette(0);
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+    const navLinks = document.querySelectorAll("nav a");
+    const sections = [...navLinks].map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY + 130;
+      sections.forEach((sec, index) => {
+        const top = sec.offsetTop;
+        const bottom = top + sec.offsetHeight;
+        navLinks[index].classList.toggle("active", y >= top && y < bottom);
+      });
+    });
+  </script></body></html>
